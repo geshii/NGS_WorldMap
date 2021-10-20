@@ -43,7 +43,7 @@
 	"mapPopupMainMission": "Основная миссия",
 	"mapPopupSideMissions": "Дополнительные миссии",
 	"mapPopupClearReward": "Награда за первое прохождение",
-	"mapPopupRewards": "Награды",
+	"mapPopupRewards": "Награда",
 	"mapPopupRewardMeseta": "N-месета",
 	"mapPopupRewardSP": "SP",
 	"mapPopupRewardSeasonPoints": "Очки Сезона",
@@ -213,17 +213,22 @@
 	"mapEnemyWaulon": "Ваурон",
 
 
-    "mapTriggerTitle": "mapTriggerTitle",
+    "mapTriggerTitle": "Батлдиа",
+	"mapTriggerReqItem": "Требуемый предмет для запуска",
+	"mapTriggerEvemyLevel": "Уровень врагов",
 	
-	"mapTriggerNamePurple": "mapTriggerNamePurple",
-	"mapTriggerDescPurple": "mapTriggerDescPurple",
-	"mapTriggerMainPurple": "mapTriggerMainPurple",
-	"mapTriggerSidePurple_a": "mapTriggerSidePurple_a",
-	"mapTriggerSidePurple_b": "mapTriggerSidePurple_b",
+	"mapTriggerNamePurple": "Опустошители Эарио",
+	"mapTriggerReqItemPurple": "ТБ: Эарио (Фиолетовый)",
+	"mapTriggerDescPurple": "Используйте свои боевые навыки, чтобы одолеть появляющихся друг за другом гигантиксов.",
+	"mapTriggerMainPurple": "Одолейте врагов",
 
-	"mapTriggerNameOrange": "mapTriggerNameOrange",
-	"mapTriggerDescOrange": "mapTriggerDescOrange",
-	"mapTriggerMainOrange": "mapTriggerMainOrange",
-	"mapTriggerSideOrange_a": "mapTriggerSideOrange_a",
-	"mapTriggerSideOrange_b": "mapTriggerSideOrange_b"
+	"mapTriggerNameYellow": "Солдаты Эарио",
+	"mapTriggerReqItemYellow": "ТБ: Эарио (Жёлтый)",
+	"mapTriggerDescYellow": "Используйте свои боевые навыки, чтобы одолеть всех врагов.",
+	"mapTriggerMainYellow": "Одолейте врагов",
+
+	"mapItemGoldSword": "Gold Prim Sword",
+	"mapItemSilverSword": "Silver Prim Sword",
+	"mapItemGoldArmor": "Gold Prim Armor",
+	"mapItemSilverArmor": "Silver Prim Armor"
 }
