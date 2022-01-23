@@ -235,57 +235,6 @@ var map_app = new nekoapp({
 
             }
         },
-        donate_menu: {
-            tag: "donate-menu",
-            prototype: {
-                template: nekoapp.create.template(
-                    function(){
-                        let modal_modelDialog = document.createElement("div")
-                            modal_modelDialog.className = "modal-dialog modal-dialog-centered";
-
-                            let modal_modalContent = document.createElement("div")
-                                modal_modalContent.className = "modal-content"
-                                
-                                let modal_content_body = document.createElement("div")
-                                    modal_content_body.className = "modal-body";
-                                    
-                                    let modal_content_body_iframe = document.createElement("div")
-                                        modal_content_body_iframe.className = "m-3"
-
-                                        let modal_content_body_donate = document.createElement("iframe")
-                                            modal_content_body_donate.setAttribute("id","kofiframe")
-                                            modal_content_body_donate.setAttribute("src","https://ko-fi.com/kosnag/?hidefeed=true&widget=true&embed=true&preview=true");
-                                            modal_content_body_donate.setAttribute("height","712");
-                                            modal_content_body_donate.style = "display:block;width:100%;";
-
-                                        let modal_content_body_donate_ru = document.createElement("iframe")
-                                            modal_content_body_donate_ru.setAttribute("src","https://widget.qiwi.com/widgets/middle-widget-300x300?publicKey=48e7qUxn9T7RyYE1MVZswX1FRSbE6iyCj2gCRwwF3Dnh5XrasNTx3BGPiMsyXQFNKQhvukniQG8RTVhYm3iPyr9iWQjzW1n3wciwKE9cC3NQi2PG7BV8CNzW7MSFyMJjkBnGmJVSZMcEDYZPWxVTWC8wkwzAcWWtRjU2LXRtUJwA9XUjp46ZY3BqphuKx&noCache=true");
-                                            modal_content_body_donate_ru.setAttribute("width","300");
-                                            modal_content_body_donate_ru.setAttribute("height","300");
-                                            modal_content_body_donate_ru.setAttribute("allowTransparency","true");
-                                            modal_content_body_donate_ru.setAttribute("scrolling","no");
-                                            modal_content_body_donate_ru.setAttribute("frameBorder","0");
-                                            modal_content_body_donate_ru.style = "display:block;margin: 0 auto;";
-                            
-                            modal_modelDialog.appendChild(modal_modalContent)
-                                modal_modalContent.appendChild(modal_content_body)
-                                    modal_content_body.appendChild(modal_content_body_iframe)
-                                    if (localStorage.getItem("nekoapp.locale") && JSON.parse(localStorage.getItem("nekoapp.locale")).language){
-                                        if (JSON.parse(localStorage.getItem("nekoapp.locale")).language == "ru-RU"){
-                                            modal_content_body_iframe.appendChild(modal_content_body_donate_ru)
-                                        }else{
-                                            modal_content_body_iframe.appendChild(modal_content_body_donate)
-                                        }
-                                    }
-                                        
-                                        
-
-                            return[modal_modelDialog]
-                    }
-                ),
-
-            }
-        },
         ngs_map: {
             tag: "ngs-map",
             prototype: {
@@ -1961,25 +1910,22 @@ var map_app = new nekoapp({
                                 URL: "//discord.gg/AvgmpuX",
                                 useDefaultNavigation: true,
                                 target: "_blank"
-                                }
-                            },
+                            }
+                        },
                         {
                             label: "localeString@github_button",
                             hyperlink: {
                                 URL: "//github.com/kosnag/NGS_WorldMap",
                                 useDefaultNavigation: true,
                                 target: "_blank"
-                                }
-                            },
+                            }
+                        },
                         {
                             label: "localeString@donate_button",
                             hyperlink: {
-                                URL: "#",
-                                event: function (donateMenu){  
-                                    donateMenu.setAttribute("data-bs-toggle","modal"),
-                                    donateMenu.setAttribute("data-bs-target","#donateModal")
-                                    donateMenu.click()
-                                }
+                                URL: "//ko-fi.com/kosnag",
+                                useDefaultNavigation: true,
+                                target: "_blank"
                             }
                         },
                         {
@@ -2006,34 +1952,35 @@ var map_app = new nekoapp({
         "ru-RU": {URL: "languages/ru_RU.json"},
         "ko-KR": {URL: "languages/ko_KR.json"},
         "ja-JP": {URL: "languages/ja_JP.json"},
-        "pt-BR": {URL: "languages/en_US.json"}
+        "pt-BR": {URL: "languages/pt_BR.json"}
     },
     loadingScreen: {
         customLoadScreen: function(){
+            let secondsLoadScreen = "3"
             let localeLoadStrings = {
                 "customLoadScreenStringTitleEn": "PSO2NGS Interactive Map",
                 "customLoadScreenString1En": "Map is not designed for mobile devices",
-                "customLoadScreenString2En": "If you see that screen more than 3 seconds - please reload a page",
+                "customLoadScreenString2En": "If you see that screen more than " + secondsLoadScreen + " seconds - please reload a page",
                 "customLoadScreenReloadEn": "Reload page",
                 
                 "customLoadScreenStringTitleRu": "Интерактивная Карта PSO2NGS",
                 "customLoadScreenString1Ru": "На мобильных устройства карта будет отображаться некорректно",
-                "customLoadScreenString2Ru": "Если вы видите данный экран более 3 секунд - перезагрузите страницу",
+                "customLoadScreenString2Ru": "Если вы видите данный экран более " + secondsLoadScreen + " секунд - перезагрузите страницу",
                 "customLoadScreenReloadRu": "Перезагрузить страницу",
 
                 "customLoadScreenStringTitleKr": "PSO2NGS 인터렉티브 맵",
                 "customLoadScreenString1Kr": "지도는 모바일 장치 용으로 설계되지 않았습니다",
-                "customLoadScreenString2Kr": "해당 화면이 3 초 이상 표시되는 경우-페이지를 다시로드하십시오",
+                "customLoadScreenString2Kr": "해당 화면이 " + secondsLoadScreen + " 초 이상 표시되는 경우-페이지를 다시로드하십시오",
                 "customLoadScreenReloadKr": "페이지 다시로드",
 
                 "customLoadScreenStringTitleJp": "PSO2NGS インタラクティブ マップ",
                 "customLoadScreenString1Jp": "このマップはモバイルデバイスでは実際のものではありません",
-                "customLoadScreenString2Jp": "この画面が3秒以上表示される場合は、ページをリロードしてください ",
+                "customLoadScreenString2Jp": "この画面が" + secondsLoadScreen + "秒以上表示される場合は、ページをリロードしてください ",
                 "customLoadScreenReloadJp": "ページの再読み込み",
 
                 "customLoadScreenStringTitlePt": "Mapa Interactivo PSO2NGS",
                 "customLoadScreenString1Pt": "Os mapas não são projetados para dispositivos móveis",
-                "customLoadScreenString2Pt": "Se você vir essa tela mais de 3 segundos - por favor, recarregue uma página",
+                "customLoadScreenString2Pt": "Se você vir essa tela mais de " + secondsLoadScreen + " segundos - por favor, recarregue uma página",
                 "customLoadScreenReloadPt": "Recarregar página"
             }
             if(localStorage.getItem("nekoapp.locale") && JSON.parse(localStorage.getItem("nekoapp.locale")).language){
@@ -2143,13 +2090,17 @@ var map_app = new nekoapp({
                     loadingScreenString2 = document.createElement("div")
                         loadingScreenString2.innerHTML = customLoadScreenString2
                         loadingScreenString2.className = "text-light text-center"
+
+                    loadingScreenReloadDiv = document.createElement("div")
+                        loadingScreenReloadDiv.className = "mt-5"
+
+                        loadingScreenReloadCenter = document.createElement("center")
                 
-                    loadingScreenReload = document.createElement("button")
-                        loadingScreenReload.innerHTML = "<i style='margin-right: 10px; margin-top: 5px;' class='fas fa-sync'></i>" + customLoadScreenReload
-                        loadingScreenReload.setAttribute("onclick", "window.location.reload();")
-                        loadingScreenReload.setAttribute("type", "button;")
-                        loadingScreenReload.className = "btn btn-outline-info text-light text-center btn-lg d-flex justify-content-center"
-                        loadingScreenReload.style = "margin-top: 35px;"
+                            loadingScreenReloadButton = document.createElement("a")
+                                loadingScreenReloadButton.innerHTML = "<i style='margin-right: 10px; margin-top: 5px;' class='fas fa-sync'></i>" + customLoadScreenReload
+                                loadingScreenReloadButton.setAttribute("href", "https://kosnag.github.io/NGS_WorldMap_Neko/")
+                                loadingScreenReloadButton.setAttribute("type", "button;")
+                                loadingScreenReloadButton.className = "btn btn-outline-info text-light btn-lg"
 
                     loadingScreenCopyright11 = document.createElement("div")
                         loadingScreenCopyright11.style = "position: absolute; bottom: 25px; left: 50%;"
@@ -2172,7 +2123,9 @@ var map_app = new nekoapp({
             loadingScreenElement.appendChild(loadingScreenStringTitle)
             loadingScreenElement.appendChild(loadingScreenString1)
             loadingScreenElement.appendChild(loadingScreenString2)
-            loadingScreenElement.appendChild(loadingScreenReload)
+            loadingScreenElement.appendChild(loadingScreenReloadDiv)
+                loadingScreenReloadDiv.appendChild(loadingScreenReloadCenter)
+                    loadingScreenReloadCenter.appendChild(loadingScreenReloadButton)
 
             loadingScreenElement.appendChild(loadingScreenCopyright11)
                 loadingScreenCopyright11.appendChild(loadingScreenCopyright12)
@@ -2201,17 +2154,6 @@ map_app.preferences.events.onAppInit = new nekoapp.event({
 			}
 		});
 		map_app.app.appendChild(map_app.languageMenu);
-		
-		map_app.donateMenu = nekoapp.create.object(map_app,map_app.preferences.elements.donate_menu,{
-			id: "donateModal",
-			class: "modal fade",
-			attr: {
-				"tabindex": "-1",
-				"aria-labelledby": "donateModalLabel",
-				"aria-hidden": "true"
-			}
-		});
-		map_app.app.appendChild(map_app.donateMenu);
 
         map_app.app.addEventListener("contextmenu",function(e){e.preventDefault();});
 	}
